@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:talkspace/screens/SignUpForm.dart';
+import 'package:talkspace/screens/auth_page.dart';
 import 'package:talkspace/screens/signup_page.dart';
 
 import 'homepage.dart';
@@ -32,7 +33,7 @@ class _SplashscreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         PageTransition(
-            child: SignUpForm(), type: PageTransitionType.leftToRight),
+            child: AuthPage(), type: PageTransitionType.leftToRight),
       );
     });
     super.initState();

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172736066305",
+    "project_id": "comfort-connect-9f74d",
+    "storage_bucket": "comfort-connect-9f74d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172736066305:android:00dc3bfcf247f0da4f6100",
+        "android_client_info": {
+          "package_name": "com.example.talkspace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172736066305-3g4mdt1okdol4im5pupeh2kfusvupkqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2CNEY-hzgObjBOxdiZ-5xKH8NPuK1BPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172736066305-3g4mdt1okdol4im5pupeh2kfusvupkqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

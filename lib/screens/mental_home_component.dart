@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:talkspace/screens/BookAppointmentPage.dart';
 import 'package:talkspace/screens/SignUpForm.dart';
+import 'package:talkspace/screens/auth_page.dart';
 import 'package:talkspace/screens/doctor_profile.dart';
 import 'package:url_launcher/url_launcher.dart';
 // import 'package:alan_voice/alan_voice.dart';
@@ -106,7 +107,7 @@ class MentalHomeComponent extends StatelessWidget {
                     value: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpForm()),
+                        MaterialPageRoute(builder: (context) => AuthPage()),
                       );
                       debugPrint('Signing out');
                     },

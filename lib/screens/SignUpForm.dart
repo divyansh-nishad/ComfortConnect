@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:talkspace/screens/homepage.dart';
 
 class SignUpForm extends StatefulWidget {
+  final Function()? onTap;
+  const SignUpForm({Key? key, required this.onTap}) : super(key: key);
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
