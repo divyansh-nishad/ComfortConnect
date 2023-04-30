@@ -42,7 +42,7 @@ class ChatList extends StateNotifier<List<MhChat>> {
                 "https://cdn.pixabay.com/photo/2021/11/15/05/52/red-fox-6796430_960_720.jpg",
             isSend: false,
             msg:
-                "ERROR11205\nWe are having trouble connecting to the server. Please try again later.",
+                "Thank you for confirming your booking. Your ride has been scheduled for 22:22 Your driver's details and estimated time of arrival will be sent to you via SMS shortly.",
             time: DateFormat("HH:mm").format(DateTime.now()),
             uid: const Uuid().v4()),
       ];

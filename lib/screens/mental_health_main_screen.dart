@@ -29,7 +29,7 @@ class _MentalHealthMainScreenState extends State<MentalHealthMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // resizeToAvoidBottomInset: false,
+       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Consumer(
           builder: (context, ref, _) {

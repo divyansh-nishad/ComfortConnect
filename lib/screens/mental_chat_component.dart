@@ -50,7 +50,8 @@ class MentalChatComponent extends StatelessWidget {
                 },
               ),
               Text(
-                "Comfort connect",
+                // "Comfort connect",
+                "YatraEase",
                 style: GoogleFonts.balsamiqSans(
                   fontWeight: FontWeight.bold,
                 ),
@@ -89,7 +90,8 @@ class MentalChatComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(24)),
                                 child: const Center(
                                   child: Text(
-                                    "Consult",
+                                    // "Consult",
+                                    "Booking",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -99,7 +101,8 @@ class MentalChatComponent extends StatelessWidget {
                               )
                             : const Center(
                                 child: Text(
-                                  "Consult",
+                                  // "Consult",
+                                  "Booking",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -124,7 +127,8 @@ class MentalChatComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(24)),
                                 child: const Center(
                                   child: Text(
-                                    "Description",
+                                    // "Description",
+                                    "Help",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -134,7 +138,8 @@ class MentalChatComponent extends StatelessWidget {
                               )
                             : const Center(
                                 child: Text(
-                                  "Description",
+                                  // "Description",
+                                  "Help",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -150,7 +155,7 @@ class MentalChatComponent extends StatelessWidget {
           final topTab = ref.watch(mhChatTabProvider);
           switch (topTab) {
             case 0:
-              return const Expanded(
+              return const Flexible(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
                   child: ChatScreenComponent(),

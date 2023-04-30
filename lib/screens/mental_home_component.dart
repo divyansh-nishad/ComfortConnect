@@ -1,17 +1,13 @@
-import 'dart:convert';
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
-import 'package:coolicons/coolicons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:talkspace/screens/BookAppointmentPage.dart';
-import 'package:talkspace/screens/SignUpForm.dart';
 import 'package:talkspace/screens/auth_page.dart';
-import 'package:talkspace/screens/doctor_profile.dart';
-import 'package:url_launcher/url_launcher.dart';
 // import 'package:alan_voice/alan_voice.dart';
 
 import '../../riverpod/bottom_tab_provider.dart';
@@ -105,11 +101,7 @@ class MentalHomeComponent extends StatelessWidget {
                       ),
                     ),
                     value: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AuthPage()),
-                      );
-                      debugPrint('Signing out');
+                      signUserOut();
                     },
                   ),
                 ],
@@ -579,6 +571,11 @@ class MentalHomeComponent extends StatelessWidget {
       ],
     );
   }
+}
+
+void signUserOut() {
+  FirebaseAuth.instance.signOut();
+  print('Signed Out');
 }
 
 callNumber() async {

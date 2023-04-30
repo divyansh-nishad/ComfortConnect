@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -19,6 +21,64 @@ class _SignUpFormState extends State<SignUpForm> {
   late bool _isFemale;
   late int _age;
   late String _password;
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final CollectionReference userCollection =
+      FirebaseFirestore.instance.collection('users');
+
+  void wrongErrorMessage(String message) {
+    showDialog(
+      context: context,
+      builder: ((context) {
+        return AlertDialog(
+          backgroundColor: Colors.deepPurple,
+          title: Text(message, style: TextStyle(color: Colors.white)),
+        );
+      }),
+    );
+  }
+
+  // sign user up method
+  void signUserUp() async {
+    try {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      );
+      if (_name.isEmpty) {
+        wrongErrorMessage("Full Name cannot be empty");
+      }
+
+      await registerUserWithEmailandPassword(_name, _email, _password)
+          .then((value) async {
+        Navigator.pop(context);
+        if (value == true) {}
+      });
+    } on FirebaseAuthException catch (e) {
+      wrongErrorMessage(e.message!);
+    }
+  }
+
+  Future registerUserWithEmailandPassword(
+      String fullName, String email, String password) async {
+    try {
+      User user = (await firebaseAuth.createUserWithEmailAndPassword(
+              email: email, password: password))
+          .user!;
+
+      if (user != null) {
+        // call our database service to update the user data.
+        user.updateDisplayName(fullName);
+        // await DatabaseService(uid: user.uid).savingUserData(fullName, email);
+        return true;
+      }
+    } on FirebaseAuthException catch (e) {
+      return e.message;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +121,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Name',
                     border: OutlineInputBorder(),
                   ),
@@ -81,9 +141,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     _name = value!;
                   },
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(),
                   ),
@@ -101,9 +161,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     _email = value!;
                   },
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Gender',
                     border: OutlineInputBorder(),
                   ),
@@ -126,9 +186,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     _gender = value!;
                   },
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Age',
                     border: OutlineInputBorder(),
                   ),
@@ -147,9 +207,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     _age = int.parse(value!);
                   },
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Password',
                     border: OutlineInputBorder(),
                   ),
@@ -174,12 +234,13 @@ class _SignUpFormState extends State<SignUpForm> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        _submitForm();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const MentalHealthApp()),
-                        );
+                        signUserUp();
+                        // _submitForm();
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const MentalHealthApp()),
+                        // );
                         // perform sign-up action
                       }
                     },
@@ -194,6 +255,28 @@ class _SignUpFormState extends State<SignUpForm> {
                           ),
                     ),
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already a member?',
+                      style: TextStyle(color: Colors.brown.shade300),
+                    ),
+                    const SizedBox(width: 4),
+                    GestureDetector(
+                      onTap: () {
+                        widget.onTap!();
+                      },
+                      child: const Text(
+                        'Log in',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
