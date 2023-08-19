@@ -111,42 +111,7 @@ class MentalWellnessComponent extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                // const Text(
-                //   "The essential wellness part works to develop helpful beliefs about your life",
-                //   style: TextStyle(
-                //       fontWeight: FontWeight.w400, color: Colors.grey),
-                // ),
-                // const SizedBox(
-                //   height: 24,
-                // ),
-                // Row(
-                //   children: [
-                //     Container(
-                //       padding: const EdgeInsets.symmetric(
-                //         horizontal: 16,
-                //         vertical: 4,
-                //       ),
-                //       decoration: BoxDecoration(
-                //         color: Colors.yellow,
-                //         borderRadius: BorderRadius.circular(16),
-                //         border: Border.all(color: Colors.black, width: 1.5),
-                //       ),
-                //       child: const Center(
-                //         child: Text(
-                //           "Unlock All",
-                //           style: TextStyle(
-                //               fontWeight: FontWeight.bold, fontSize: 12),
-                //         ),
-                //       ),
-                //     ),
-                //     const Spacer(),
-                //     const Icon(Ionicons.thumbs_up_outline),
-                //     const SizedBox(
-                //       width: 16,
-                //     ),
-                //     const Icon(Ionicons.share_social)
-                //   ],
-                // ),
+
                 Center(
                   child: const Image(
                     image: AssetImage('assets/images/logo5.png'),
@@ -186,7 +151,7 @@ class MentalWellnessComponent extends StatelessWidget {
                                     width: 120,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(16),
-                                        image: DecorationImage(
+                                        image: const DecorationImage(
                                             image: AssetImage(
                                                 'assets/images/logo2.jpg'),
                                             fit: BoxFit.cover)),

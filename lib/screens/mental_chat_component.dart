@@ -50,8 +50,7 @@ class MentalChatComponent extends StatelessWidget {
                 },
               ),
               Text(
-                // "Comfort connect",
-                "YatraEase",
+                "Comfort connect",
                 style: GoogleFonts.balsamiqSans(
                   fontWeight: FontWeight.bold,
                 ),
@@ -90,8 +89,7 @@ class MentalChatComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(24)),
                                 child: const Center(
                                   child: Text(
-                                    // "Consult",
-                                    "Booking",
+                                    "Consult",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -101,8 +99,7 @@ class MentalChatComponent extends StatelessWidget {
                               )
                             : const Center(
                                 child: Text(
-                                  // "Consult",
-                                  "Booking",
+                                  "Consult",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -127,8 +124,7 @@ class MentalChatComponent extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(24)),
                                 child: const Center(
                                   child: Text(
-                                    // "Description",
-                                    "Help",
+                                    "Description",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -138,8 +134,7 @@ class MentalChatComponent extends StatelessWidget {
                               )
                             : const Center(
                                 child: Text(
-                                  // "Description",
-                                  "Help",
+                                  "Description",
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),

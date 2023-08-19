@@ -14,6 +14,7 @@ import '../../riverpod/bottom_tab_provider.dart';
 
 class MentalHomeComponent extends StatelessWidget {
   MentalHomeComponent({Key? key}) : super(key: key);
+  FirebaseAuth _auth = FirebaseAuth.instance;
   List doctors = [
     {
       "name": "Emma Johnson",
@@ -26,12 +27,12 @@ class MentalHomeComponent extends StatelessWidget {
           "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     },
     {
-      "name": "Sophia Patel",
+      "name": "Oliver Brown",
       "image_link":
           "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
     },
     {
-      "name": "Oliver Brown",
+      "name": "Sophia Patel",
       "image_link":
           "https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
     }
@@ -131,7 +132,7 @@ class MentalHomeComponent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Hello SunSeeker",
+                      "Hello ${_auth.currentUser!.displayName!}",
                       style: GoogleFonts.balsamiqSans(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -326,7 +327,7 @@ class MentalHomeComponent extends StatelessWidget {
                         height: 12,
                       ),
                       Text(
-                        "Talk",
+                        "Dr. ${doctors[index]['name'].toString().split(" ")[0]}",
                         style: GoogleFonts.balsamiqSans(
                           fontWeight: FontWeight.w300,
                           color: Colors.grey,
